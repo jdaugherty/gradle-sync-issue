@@ -1,0 +1,9 @@
+tasks.register('extractExamples') {
+    doLast {
+        // replace sync with `project.sync` to fix
+        sync {
+            from(zipTree(project.file('examples.zip')))
+            into(layout.buildDirectory.dir('extracted-examples').get())
+        }
+    }
+}
